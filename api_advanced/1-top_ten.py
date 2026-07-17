@@ -15,7 +15,13 @@ def top_ten(subreddit):
         return
 
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    headers = {"User-Agent": "ALU-Student-Reddit-Script-v1.0"}
+    # A highly unique User-Agent prevents Reddit from returning 429/302 blocks
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                      "AppleWebKit/537.36 (KHTML, like Gecko) "
+                      "Chrome/111.0.0.0 Safari/537.36 "
+                      "ALU-Scripting-Project-v2.0"
+    }
     params = {"limit": 10}
 
     try:
